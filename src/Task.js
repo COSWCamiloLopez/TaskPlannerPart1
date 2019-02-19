@@ -1,35 +1,42 @@
 import React, {Component} from 'react';
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-class Task extends Component{
+const styles = theme => ({
+    card: {}
+});
 
-    constructor(props){
+class Task extends Component {
+
+    constructor(props) {
         super(props);
-
-        this.state = {
-            responsible: {
-                name: "",
-                email: ""
-            },
-            status: "",
-            date: new Date(),
-            description: "",
-            user: 0
-        };
     };
 
-    render(){
+    render() {
 
         const {classes} = this.props;
 
-        return(
+        return (
             <div>
                 <Card className={classes.card}>
                     <CardContent>
+                        <Typography variant="h5" component="h2">
+                            {this.props.tasks.responsible.name}
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                            {this.props.tasks.status}
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                            {this.props.tasks.description}
+                        </Typography>
                     </CardContent>
                 </Card>
+                <br/>
             </div>
         );
     }
 }
+
+export default withStyles(styles)(Task);

@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import withStyles from "@material-ui/core/styles/withStyles";
 import TaskPlannerDrawer from './TaskPlannerDrawer';
 
 const styles = theme => ({});
 
 class TaskPlanner extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+
+        const {classes} = this.props;
+
         return (
             <div>
                 <TaskPlannerDrawer/>
@@ -15,4 +21,4 @@ class TaskPlanner extends Component {
     }
 }
 
-export default withStyles(styles)(TaskPlanner);
+export default TaskPlanner;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Login from './Login';
 import './App.css';
 import {AppBarPage} from './AppBar';
-import TaskPlannerDrawer from "./TaskPlannerDrawer";
+import TaskPlanner from "./TaskPlanner";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
 
         const taskPlannerView = () => (
             <div>
-                <TaskPlannerDrawer/>
+                <TaskPlanner/>
             </div>
         );
 

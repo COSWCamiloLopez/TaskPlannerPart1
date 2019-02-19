@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
 import userIcon from "./user.png";
+import Task from "./Task";
 
 const drawerWidth = 350;
 
@@ -97,8 +98,37 @@ class TaskPlannerDrawer extends Component {
     };
 
     render() {
+
+        const tasks = [{
+            description: "Test description",
+            responsible: {
+                name: "Camilo",
+                email: "prueba@gmail.com"
+            },
+            status: "ready",
+            date: new Date(),
+            user: 1
+        }, {
+            description: "Test description1",
+            responsible: {
+                name: "Camilo",
+                email: "prueba@gmail.com"
+            },
+            status: "ready",
+            date: new Date(),
+            user: 1
+        }]
+
         const {classes, theme} = this.props;
+
         const {open} = this.state;
+
+        const listTasks = tasks.map((x) => {
+            return (
+                <Task tasks={x}/>
+            );
+        });
+
         return (
             <div className={classes.root}>
                 <AppBar
@@ -150,6 +180,14 @@ class TaskPlannerDrawer extends Component {
                         </Card>
                     </div>
                 </Drawer>
+                <main
+                    className={classNames(classes.content, {
+                        [classes.contentShift]: open,
+                    })}
+                >
+                    <div className={classes.drawerHeader}/>
+                    {listTasks}
+                </main>
             </div>
         );
     }
