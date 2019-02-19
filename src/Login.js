@@ -20,6 +20,15 @@ const styles = theme => ({
 class Login extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            user: "",
+            password: ""
+        }
+
+        this.handleChangeUser = this.handleChangeUser.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
@@ -32,32 +41,60 @@ class Login extends Component {
                     className={classes.image}
                 />
                 <br/>
+                <form className={classes.form}>
                     <TextField
+                        required
                         id="user"
                         label="User"
                         placeholder="User"
                         margin="normal"
                         className={classes.text}
                         variant="outlined"
+                        onChange={this.handleChangeUser}
                     />
                     <br/>
                     <TextField
+                        required
                         id="password"
                         label="Password"
+                        type="password"
                         placeholder="Password"
                         margin="normal"
                         variant="outlined"
                         className={classes.text}
+                        onChange={this.handleChangePassword}
                     />
                     <br/>
                     <Button
                         variant="outlined"
                         color="primary"
-                        className={classes.button}>
+                        className={classes.button}
+                        onClick={this.handleSubmit}
+                        type="submit"
+                    >
                         Login
                     </Button>
+                </form>
             </div>
         );
+    }
+
+    handleChangeUser(e) {
+        this.setState({user: e.target.value});
+    }
+
+    handleChangePassword(e) {
+        this.setState({password: e.target.value})
+    }
+
+    handleSubmit(e) {
+        if (localStorage.getItem(this.state.user) !== null) {
+            if (localStorage.getItem(this.state.user) === this.state.password) {
+                localStorage.setItem("isLoggedIn", "true");
+            }
+        } else {
+            localStorage.setItem("isLoggedIn", "false");
+        }
     }
 }
 
