@@ -39,6 +39,7 @@ class Login extends Component {
                 <img
                     src={loginIcon}
                     className={classes.image}
+                    alt=""
                 />
                 <br/>
                 <form className={classes.form}>

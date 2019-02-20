@@ -119,7 +119,7 @@ class TaskPlannerDrawer extends Component {
             user: 1
         }]
 
-        const {classes, theme} = this.props;
+        const {classes} = this.props;
 
         const {open} = this.state;
 
@@ -169,7 +169,7 @@ class TaskPlannerDrawer extends Component {
                     <div className={classes.userData}>
                         <Card className={classes.card}>
                             <CardContent>
-                                <img src={userIcon} className={classes.userIcon}/>
+                                <img src={userIcon} className={classes.userIcon} alt=""/>
                                 <Typography variant="subtitle2" gutterBottom>
                                     <b>Johan Camilo López Girón</b>
                                 </Typography>
@@ -183,7 +183,7 @@ class TaskPlannerDrawer extends Component {
                                 button
                                 onClick={this.handleChangeIsLoggedIn}
                             >
-                                <ListItemIcon><img src={ExitIcon}/></ListItemIcon>
+                                <ListItemIcon><img src={ExitIcon} alt=""/></ListItemIcon>
                                 <ListItemText primary="Logout"/>
                             </ListItem>
                         </List>
