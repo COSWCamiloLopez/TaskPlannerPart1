@@ -11,14 +11,14 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
-import userIcon from "./user.png";
+import userIcon from "../images/user.png";
 import Task from "./Task";
 import AddButton from "./AddButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ExitIcon from "./baseline-exit_to_app-24px.svg";
+import ExitIcon from "../images/baseline-exit_to_app-24px.svg";
 
 const drawerWidth = 350;
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Login from './Login';
+import Login from './components/Login';
 import './App.css';
-import {AppBarPage} from './AppBar';
-import TaskPlanner from "./TaskPlanner";
+import {AppBarPage} from './components/AppBar';
+import TaskPlanner from "./components/TaskPlanner";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import withStyles from '@material-ui/core/styles/withStyles';
-import loginIcon from './loginIcon.png';
+import loginIcon from '../images/loginIcon.png';
 
 const styles = theme => ({
     button: {
