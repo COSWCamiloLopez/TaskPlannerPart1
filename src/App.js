@@ -6,6 +6,7 @@ import TaskPlanner from "./components/TaskPlanner";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
+
     render() {
 
         const loginView = () => (
@@ -21,14 +22,44 @@ class App extends Component {
             </div>
         );
 
+        const routesLogged = [
+            {
+                path: "/tasks",
+                component: taskPlannerView
+            }
+        ];
+
+        const routesNoLogged = [
+            {
+                path: "/",
+                component: loginView
+            }
+        ];
+
+        const pathsLogged = routesLogged.map((x) => {
+            return (
+                <Route
+                    path={x.path}
+                    component={x.component}
+                />
+            );
+        });
+
+        const pathsNoLogged = routesNoLogged.map((x) => {
+            return (
+                <Route
+                    path={x.path}
+                    component={x.component}
+                />
+            );
+        });
+
+        const isLogged = localStorage.getItem('isLoggedIn');
+
         return (
             <Router>
                 <div className="App">
-                    <Route
-                        exact
-                        path='/'
-                        component={localStorage.getItem("isLoggedIn") === "true" ? taskPlannerView : loginView}
-                    />
+                    {isLogged === "true" ? pathsLogged : pathsNoLogged}
                 </div>
             </Router>
         );

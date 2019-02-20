@@ -72,7 +72,6 @@ class Login extends Component {
                         color="primary"
                         className={classes.button}
                         onClick={this.handleSubmit}
-                        type="submit"
                     >
                         Login
                     </Button>
@@ -107,6 +106,7 @@ class Login extends Component {
         } else {
             localStorage.setItem("isLoggedIn", "false");
         }
+        window.location.href = '/tasks';
     }
 
     handleCreateAccount(){
