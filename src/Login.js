@@ -29,6 +29,7 @@ class Login extends Component {
         this.handleChangeUser = this.handleChangeUser.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCreateAccount = this.handleCreateAccount.bind(this);
     }
 
     render() {
@@ -75,6 +76,16 @@ class Login extends Component {
                     >
                         Login
                     </Button>
+                    <br/>
+                    <br/>
+                    <Button
+                        variant="outlined"
+                        color="primary"
+                        className={classes.button}
+                        onClick={this.handleCreateAccount}
+                    >
+                        Create account
+                    </Button>
                 </form>
             </div>
         );
@@ -96,6 +107,11 @@ class Login extends Component {
         } else {
             localStorage.setItem("isLoggedIn", "false");
         }
+    }
+
+    handleCreateAccount(){
+        localStorage.setItem("registerPage", "true");
+        window.location.reload();
     }
 }
 
