@@ -13,6 +13,12 @@ import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
 import userIcon from "./user.png";
 import Task from "./Task";
+import AddButton from "./AddButton";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ExitIcon from "./baseline-exit_to_app-24px.svg";
 
 const drawerWidth = 350;
 
@@ -87,14 +93,8 @@ class TaskPlannerDrawer extends Component {
         this.state = {
             open: false
         };
-    };
 
-    handleDrawerOpen = () => {
-        this.setState({open: true});
-    };
-
-    handleDrawerClose = () => {
-        this.setState({open: false});
+        this.handleChangeIsLoggedIn = this.handleChangeIsLoggedIn.bind(this);
     };
 
     render() {
@@ -178,6 +178,15 @@ class TaskPlannerDrawer extends Component {
                                 </Typography>
                             </CardContent>
                         </Card>
+                        <List>
+                            <ListItem
+                                button
+                                onClick={this.handleChangeIsLoggedIn}
+                            >
+                                <ListItemIcon><img src={ExitIcon}/></ListItemIcon>
+                                <ListItemText primary="Logout"/>
+                            </ListItem>
+                        </List>
                     </div>
                 </Drawer>
                 <main
@@ -187,9 +196,23 @@ class TaskPlannerDrawer extends Component {
                 >
                     <div className={classes.drawerHeader}/>
                     {listTasks}
+                    <AddButton/>
                 </main>
             </div>
         );
+    }
+
+    handleDrawerOpen = () => {
+        this.setState({open: true});
+    };
+
+    handleDrawerClose = () => {
+        this.setState({open: false});
+    };
+
+    handleChangeIsLoggedIn() {
+        localStorage.setItem("isLoggedIn", "false");
+        window.location.reload();
     }
 }
 
